@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 cd ~
 mkdir lab0
 cd lab0
@@ -97,7 +96,6 @@ git add .
 git commit -m "Second commit (second part completed)"
 
 # Часть 3: семь заданий поиска (для кириллицы нужна локаль UTF-8)
-export LC_ALL=C.UTF-8
 ls -lR | grep '^-' | sort -k5,5n | tail -n 5
 grep -rihE 'катя|баринов' victor experiments | grep -iv 'гост' | sort -r | head -n 6
 grep -rli 'катя' victor/kitchen/molecular_station experiments/molecular_backup | wc -l
