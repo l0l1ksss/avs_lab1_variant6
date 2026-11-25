@@ -1,4 +1,3 @@
-#!/bin/bash
 cd ~
 mkdir lab0
 cd lab0
