@@ -3,7 +3,6 @@ mkdir lab0
 cd lab0
 
 # Часть 1: создание каталогов и файлов
-git init -b master
 mkdir -p victor/kitchen/molecular_station victor/kitchen/hot_station victor/hall victor/office experiments archive_empty
 echo "Катя готовит свекольную пену для нового блюда
 Лёва проверяет температуру перед подачей
@@ -75,9 +74,6 @@ chmod 660 experiments/tasting_results
 chmod 700 archive_empty
 chmod u=rw,g=r,o=r opening_message
 ls -lR
-git status
-git add .
-git commit -m "First commit (complete first part)"
 
 # Часть 2
 cp experiments/tasting_results victor/office/successful_experiment
@@ -89,9 +85,6 @@ cat victor/kitchen/hot_station/senya_report victor/kitchen/hot_station/fedya_rep
 cat victor/kitchen/chef_order >> experiments/tasting_results
 mv victor/hall/reservations victor/office/evening_reservations
 ls -liR
-git status
-git add .
-git commit -m "Second commit (second part completed)"
 
 # Часть 3: семь заданий поиска (для кириллицы нужна локаль UTF-8)
 ls -lR | grep '^-' | sort -k5,5n | tail -n 5
@@ -112,8 +105,3 @@ rm victor/kitchen/molecular_station/nitrogen_notes
 rmdir archive_empty
 rm -r experiments/molecular_backup
 ls -lR
-git status
-git add .
-git commit -m "Third commit (third part completed)"
-git --no-pager log --oneline
-git status
