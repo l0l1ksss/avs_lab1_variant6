@@ -1,10 +1,9 @@
 #!/bin/bash
 set -e
-set -o pipefail
-cd "$HOME"
-# Запускать только в чистом окружении: mkdir остановит скрипт, если lab0 уже существует.
+cd ~
 mkdir lab0
 cd lab0
+# Часть 1: создание каталогов и файлов
 git init -b master
 git config user.name "l0l1ksss"
 git config user.email "106400845+l0l1ksss@users.noreply.github.com"
@@ -79,14 +78,9 @@ chmod 660 experiments/tasting_results
 chmod 700 archive_empty
 chmod u=rw,g=r,o=r opening_message
 ls -lR
-# Если передан URL нового пустого репозитория, настроить публикацию.
-if [[ -n "${1:-}" ]]; then
-    git remote add origin "$1"
-fi
 git status
 git add .
 git commit -m "First commit (complete first part)"
-if [[ -n "${1:-}" ]]; then git push -u origin HEAD; fi
 
 # Часть 2
 cp experiments/tasting_results victor/office/successful_experiment
@@ -101,9 +95,8 @@ ls -liR
 git status
 git add .
 git commit -m "Second commit (second part completed)"
-if [[ -n "${1:-}" ]]; then git push; fi
 
-# Часть 3: семь заданий поиска
+# Часть 3: семь заданий поиска (для кириллицы нужна локаль UTF-8)
 export LC_ALL=C.UTF-8
 ls -lR | grep '^-' | sort -k5,5n | tail -n 5
 grep -rihE 'катя|баринов' victor experiments | grep -iv 'гост' | sort -r | head -n 6
@@ -118,7 +111,6 @@ rm experiments/tasting_results
 rm experiments/current_recipe
 rm kitchen_entry
 rm opening_message
-ls -li victor/kitchen/shift_order
 rm victor/kitchen/shift_order
 rm victor/kitchen/molecular_station/nitrogen_notes
 rmdir archive_empty
@@ -127,6 +119,6 @@ ls -lR
 git status
 git add .
 git commit -m "Third commit (third part completed)"
-if [[ -n "${1:-}" ]]; then git push; fi
-git log --oneline
+git --no-pager log --oneline
 git status
+# Публикация на GitHub выполняется отдельно, после настройки origin.
