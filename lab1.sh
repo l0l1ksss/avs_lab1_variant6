@@ -1,6 +1,7 @@
 cd ~
 mkdir lab0
 cd lab0
+
 # Часть 1: создание каталогов и файлов
 git init -b master
 mkdir -p victor/kitchen/molecular_station victor/kitchen/hot_station victor/hall victor/office experiments archive_empty
