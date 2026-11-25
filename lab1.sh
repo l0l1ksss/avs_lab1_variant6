@@ -4,8 +4,6 @@ mkdir lab0
 cd lab0
 # Часть 1: создание каталогов и файлов
 git init -b master
-git config user.name "l0l1ksss"
-git config user.email "106400845+l0l1ksss@users.noreply.github.com"
 mkdir -p victor/kitchen/molecular_station victor/kitchen/hot_station victor/hall victor/office experiments archive_empty
 echo "Катя готовит свекольную пену для нового блюда
 Лёва проверяет температуру перед подачей
@@ -119,4 +117,3 @@ git add .
 git commit -m "Third commit (third part completed)"
 git --no-pager log --oneline
 git status
-# Публикация на GitHub выполняется отдельно, после настройки origin.
